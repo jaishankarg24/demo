@@ -19,6 +19,8 @@ public class DemoApplication {
 
 		HeavyResource heavyResource = context.getBean(HeavyResource.class);
 
+		var orderService2 = context.getBean(OrderService.class);
+
 	}
 
 }
