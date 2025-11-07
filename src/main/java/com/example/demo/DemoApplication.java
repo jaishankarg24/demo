@@ -17,6 +17,8 @@ public class DemoApplication {
 		var notificationManager = context.getBean(NotificationManager.class);
 		notificationManager.sendNotification("Hello, this is a test message!");
 
+		HeavyResource heavyResource = context.getBean(HeavyResource.class);
+
 	}
 
 }

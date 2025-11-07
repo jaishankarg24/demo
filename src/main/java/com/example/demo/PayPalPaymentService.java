@@ -2,7 +2,7 @@ package com.example.demo;
 
 import org.springframework.stereotype.Service;
 
-@Service("paypal")
+//@Service("paypal")
 public class PayPalPaymentService implements PaymentService {
     @Override
     public void processPayment(double amount) {
