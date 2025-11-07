@@ -13,6 +13,9 @@ public class DemoApplication {
 		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 		var orderService = context.getBean(OrderService.class);
 		orderService.placeOrder();
+
+		var notificationManager = context.getBean(NotificationManager.class);
+		notificationManager.sendNotification("Hello, this is a test message!");
 	}
 
 }
