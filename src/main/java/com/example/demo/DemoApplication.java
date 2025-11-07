@@ -10,7 +10,7 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 		var orderService = context.getBean(OrderService.class);
 		orderService.placeOrder();
 
@@ -20,6 +20,8 @@ public class DemoApplication {
 		HeavyResource heavyResource = context.getBean(HeavyResource.class);
 
 		var orderService2 = context.getBean(OrderService.class);
+
+		context.close();
 
 	}
 
