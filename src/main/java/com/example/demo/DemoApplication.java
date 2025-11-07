@@ -11,7 +11,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
-		OrderService orderService = context.getBean(OrderService.class);
+		var orderService = context.getBean(OrderService.class);
 		orderService.placeOrder();
 	}
 
