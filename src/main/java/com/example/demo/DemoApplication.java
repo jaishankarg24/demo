@@ -10,6 +10,7 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 
+		/*
 		ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 		var orderService = context.getBean(OrderService.class);
 		orderService.placeOrder();
@@ -21,7 +22,12 @@ public class DemoApplication {
 
 		var orderService2 = context.getBean(OrderService.class);
 
-		context.close();
+		context.close();*/
+
+		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+		var userService = context.getBean(UserService.class);
+		userService.registerUser(new User(1L, "jai@gmail.com", "12345", "Jai"));
+		userService.registerUser(new User(1L, "jai@gmail.com", "12345", "Jai"));
 
 	}
 
