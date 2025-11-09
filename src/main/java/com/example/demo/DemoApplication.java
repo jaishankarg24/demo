@@ -15,20 +15,23 @@ public class DemoApplication {
 
 		//ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 
+
 		User user = User.builder()
 						.name("Jai")
 						.email("jai@gmail.com")
 						.password("pwd")
 						.build();
 
-		var address = Address.builder()
+		/*var address = Address.builder()
 				.street("street")
 				.city("city")
 				.state("state")
 				.zip("zip")
 				.build();
 
-		user.addAddress(address);
+		user.addAddress(address);*/
+
+		user.addTag("tag1");
 		System.out.println(user);
 
 	}
