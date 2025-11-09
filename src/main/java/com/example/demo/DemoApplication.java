@@ -14,9 +14,9 @@ public class DemoApplication {
 	public static void main(String[] args) {
 
 
-		//ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 
-
+		/*
 		User user = User.builder()
 						.name("Jai")
 						.email("jai@gmail.com")
@@ -28,7 +28,7 @@ public class DemoApplication {
 				.build();
 
 		user.setProfile(profile);
-		profile.setUser(user);
+		profile.setUser(user);*/
 
 		/*var address = Address.builder()
 				.street("street")
@@ -40,7 +40,7 @@ public class DemoApplication {
 		user.addAddress(address);*/
 
 		//user.addTag("tag1");
-		System.out.println(user);
+		//System.out.println(user);
 
 	}
 
