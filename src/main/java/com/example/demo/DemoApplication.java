@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.entities.Address;
+import com.example.demo.entities.Profile;
 import com.example.demo.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +23,13 @@ public class DemoApplication {
 						.password("pwd")
 						.build();
 
+		var profile = Profile.builder()
+				.bio("bio")
+				.build();
+
+		user.setProfile(profile);
+		profile.setUser(user);
+
 		/*var address = Address.builder()
 				.street("street")
 				.city("city")
@@ -31,7 +39,7 @@ public class DemoApplication {
 
 		user.addAddress(address);*/
 
-		user.addTag("tag1");
+		//user.addTag("tag1");
 		System.out.println(user);
 
 	}
