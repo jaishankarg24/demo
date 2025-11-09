@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.entities.Address;
 import com.example.demo.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,19 +15,22 @@ public class DemoApplication {
 
 		//ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 
-		//3.
 		User user = User.builder()
 						.name("Jai")
 						.email("jai@gmail.com")
 						.password("pwd")
 						.build();
-		//2.
-		//User user = new User(1L, "jai", "jai@gmail", "pwd");
 
-		//1.
-		//user.setName("jai");
-		//user.setEmail("email");
-		//user.setPassword("pwd");
+		var address = Address.builder()
+				.street("street")
+				.city("city")
+				.state("state")
+				.zip("zip")
+				.build();
+
+		user.addAddress(address);
+		System.out.println(user);
+
 	}
 
 }
