@@ -84,6 +84,12 @@
 			<artifactId>flyway-mysql</artifactId>
 <!--			<version>11.16.0</version>-->
 		</dependency>
+
+		<dependency>
+			<artifactId>lombok</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<scope>annotationProcessor</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
