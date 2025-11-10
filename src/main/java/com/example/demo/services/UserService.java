@@ -1,14 +1,17 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Address;
+import com.example.demo.entities.Category;
+import com.example.demo.entities.Product;
 import com.example.demo.entities.User;
-import com.example.demo.repositories.AddressRepository;
-import com.example.demo.repositories.ProfileRepository;
-import com.example.demo.repositories.UserRepository;
+import com.example.demo.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.Set;
 
 @AllArgsConstructor
 @Service
@@ -17,6 +20,8 @@ public class UserService {
     private final EntityManager entityManager;
     private final ProfileRepository profileRepository;
     private final AddressRepository addressRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     // AllArgsConstructor - to avoid explicit constructor dependency injection
 
@@ -81,5 +86,36 @@ public class UserService {
         var address = user.getAddresses().getFirst();
         user.removeAddress(address);//address is deleted
         userRepository.save(user);
+    }
+
+    @Transactional
+    public void manageProducts() {
+
+        /* Step 1: Create a Product with a new Category
+        Category category = new Category("Category 1");
+
+        Product product = Product.builder().name("Product 1").description("Description 1").price(BigDecimal.valueOf(10.99)).category(category).build();
+
+        productRepository.save(product);*/
+
+        // Step 2: Create a Product for an Existing Category
+        /*
+        Category category = categoryRepository.findById((byte) 1).orElseThrow();
+
+        Product product = Product.builder().name("Product 2").description("Description 2").price(BigDecimal.valueOf(10.99)).category(category).build();
+
+        productRepository.save(product);*/
+
+        // Step 3: Add Products to a User’s Wishlist
+        /*User user = userRepository.findById(2L).orElseThrow();
+
+        Iterable<Product> products = productRepository.findAll();
+
+        products.forEach(user::addFavoriteProduct);
+        userRepository.save(user);*/
+
+        //Step 4: Deleting a Product
+        productRepository.deleteById(2L);
+
     }
 }

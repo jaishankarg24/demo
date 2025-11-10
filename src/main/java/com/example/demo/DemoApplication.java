@@ -27,7 +27,8 @@ public class DemoApplication {
 		//service.showRelatedEntities();
 		//service.fetchAddress();
 		//service.persistRelated();
-		service.deleteRelated();
+		//service.deleteRelated();
+		service.manageProducts();
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 
