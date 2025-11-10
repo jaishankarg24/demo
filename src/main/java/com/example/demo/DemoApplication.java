@@ -4,6 +4,7 @@ import com.example.demo.entities.Address;
 import com.example.demo.entities.Profile;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,7 +17,10 @@ public class DemoApplication {
 
 
 		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
-		UserRepository repository = context.getBean(UserRepository.class);
+		var service =  context.getBean(UserService.class);
+		service.showEntityStates();
+
+		//UserRepository repository = context.getBean(UserRepository.class);
 
 		/*User user = User.builder()
 						.name("Jai")
@@ -31,7 +35,7 @@ public class DemoApplication {
 
 		//repository.findAll().forEach(user -> System.out.println(user.getEmail()));
 
-		repository.deleteById(1L);
+		//repository.deleteById(1L);
 		/*
 		var profile = Profile.builder()
 				.bio("bio")
