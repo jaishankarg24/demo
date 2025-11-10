@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.entities.Address;
 import com.example.demo.entities.Profile;
 import com.example.demo.entities.User;
+import com.example.demo.repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,14 +16,23 @@ public class DemoApplication {
 
 
 		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+		UserRepository repository = context.getBean(UserRepository.class);
 
-		/*
-		User user = User.builder()
+		/*User user = User.builder()
 						.name("Jai")
 						.email("jai@gmail.com")
 						.password("pwd")
 						.build();
 
+		repository.save(user);*/
+
+		//User user1 = repository.findById(1L).orElseThrow();
+		//System.out.println(user1.getName());
+
+		//repository.findAll().forEach(user -> System.out.println(user.getEmail()));
+
+		repository.deleteById(1L);
+		/*
 		var profile = Profile.builder()
 				.bio("bio")
 				.build();
