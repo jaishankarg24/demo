@@ -71,4 +71,15 @@ public class UserService {
         userRepository.save(user);
         //addressRepository.save(address);
     }
+
+    @Transactional
+    public void deleteRelated() {
+        //Deleting Children data userRepository.deleteById(1L);
+
+        //Deleting Parent from child entity
+        var user = userRepository.findById(6L).orElseThrow();
+        var address = user.getAddresses().getFirst();
+        user.removeAddress(address);//address is deleted
+        userRepository.save(user);
+    }
 }
