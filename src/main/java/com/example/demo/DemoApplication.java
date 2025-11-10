@@ -19,13 +19,14 @@ public class DemoApplication {
 
 
 		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
-		AddressService addressService = context.getBean(AddressService.class);
-		addressService.showAddressById(1L);
+		//AddressService addressService = context.getBean(AddressService.class);
+		//addressService.showAddressById(1L);
 
 		var service =  context.getBean(UserService.class);
-		service.showEntityStates();
-		service.showRelatedEntities();
-		service.fetchAddress();
+		//service.showEntityStates();
+		//service.showRelatedEntities();
+		//service.fetchAddress();
+		service.persistRelated();
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 
