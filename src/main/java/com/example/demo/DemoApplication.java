@@ -18,7 +18,8 @@ public class DemoApplication {
 
 		ApplicationContext context = SpringApplication.run(DemoApplication.class, args);
 		var service =  context.getBean(UserService.class);
-		service.showEntityStates();
+		//service.showEntityStates();
+		service.showRelatedEntities();
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 

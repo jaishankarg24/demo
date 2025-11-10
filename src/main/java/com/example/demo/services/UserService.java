@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.User;
+import com.example.demo.repositories.ProfileRepository;
 import com.example.demo.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
     private final EntityManager entityManager;
+    private final ProfileRepository profileRepository;
 
     // AllArgsConstructor - to avoid explicit constructor dependency injection
 
@@ -35,6 +37,11 @@ public class UserService {
         else
             System.out.println("Transient / Detached");
 
+    }
 
+    @Transactional
+    public void showRelatedEntities() {
+        var profile = profileRepository.findById(2L).orElseThrow();
+        System.out.println(profile.getUser().getEmail());
     }
 }
