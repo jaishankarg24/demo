@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.User;
+import com.example.demo.repositories.AddressRepository;
 import com.example.demo.repositories.ProfileRepository;
 import com.example.demo.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -14,6 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final EntityManager entityManager;
     private final ProfileRepository profileRepository;
+    private final AddressRepository addressRepository;
 
     // AllArgsConstructor - to avoid explicit constructor dependency injection
 
@@ -43,5 +45,9 @@ public class UserService {
     public void showRelatedEntities() {
         var profile = profileRepository.findById(2L).orElseThrow();
         System.out.println(profile.getUser().getEmail());
+    }
+
+    public void fetchAddress() {
+        var address = addressRepository.findById(1L).orElseThrow();
     }
 }
