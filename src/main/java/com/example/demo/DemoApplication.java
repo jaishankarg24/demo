@@ -30,7 +30,8 @@ public class DemoApplication {
 		//service.deleteRelated();
 		//service.manageProducts();
 		//service.updateProductPrices();
-		service.fetchProducts();
+		//service.fetchProducts();
+		service.fetchUser();
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 
