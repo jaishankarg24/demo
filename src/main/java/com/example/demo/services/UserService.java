@@ -149,4 +149,17 @@ public class UserService {
         var products = productRepository.findProducts(BigDecimal.valueOf(1), BigDecimal.valueOf(15));
         products.forEach(System.out::println);
     }
+
+    @Transactional
+    public void printLoyalProfiles() {
+        //var profiles = profileRepository.findByLoyaltyPointsGreaterThan(2);
+        //var profiles = profileRepository.findByLoyaltyPointsGreaterThanOrderByUserEmail(2);
+        //profiles.forEach(p -> System.out.println(p.getId()+ ": " + p.getUser().getEmail()));
+
+        var profiles = profileRepository.findLoyaltyProfiles(2);
+        profiles.forEach(p -> System.out.println(p.getId()+ ": " + p.getEmail()));
+
+        var users = userRepository.findLoyalUsers(2);
+        users.forEach(p -> System.out.println(p.getId() + ": " + p.getEmail()));
+    }
 }
