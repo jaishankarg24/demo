@@ -134,4 +134,13 @@ public class UserService {
         var user = userRepository.findByEmail("jai@gmail.com").orElseThrow();
         System.out.println(user);
     }
+
+    @Transactional
+    public void fetchUsers() {
+        var users = userRepository.findAllWithTags();
+        users.forEach(u -> {
+            System.out.println(u);
+            u.getAddresses().forEach(System.out::println);
+        });
+    }
 }
