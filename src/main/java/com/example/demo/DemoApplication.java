@@ -29,7 +29,8 @@ public class DemoApplication {
 		//service.persistRelated();
 		//service.deleteRelated();
 		//service.manageProducts();
-		service.updateProductPrices();
+		//service.updateProductPrices();
+		service.fetchProducts();
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 

@@ -27,4 +27,8 @@ public class Category {
     public Category(String categoryName) {
         this.name = categoryName;
     }
+
+    public Category(byte id) {
+        this.id = id;
+    }
 }

@@ -1,5 +1,8 @@
 package com.example.demo.repositories;
 
+import com.example.demo.dtos.ProductSummary;
+import com.example.demo.dtos.ProductSummaryDTO;
+import com.example.demo.entities.Category;
 import com.example.demo.entities.Product;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -11,7 +14,7 @@ import java.util.List;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
 
-    // String
+    // Derived Queries String
     List<Product> findByName(String name);
     // Select * from products where name = ?
     List<Product> findByNameLike(String name);
@@ -42,6 +45,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     List<Product> findTop5ByNameOrderByPrice(String name);
     List<Product> findFirst5ByNameLikeOrderByPrice(String name);
 
+    //Writing Custom queries
     // Find products whose prices are in a given range and sort by name
     // SQL or JPQL
     //SQL
@@ -65,4 +69,24 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Modifying
     @Query("update Product p set p.price = :newPrice where p.category.id = :categoryId")
     void updatePriceByCategory(BigDecimal newPrice, Byte categoryId);
+
+
+    //List<Product> findByCategory(Category category);
+
+    // Fetch Partial Data
+    //Projections DTos interface to select only few fields/columns
+    //List<ProductSummary> findByCategory(Category category);
+
+    //Projections DTos classes
+    //List<ProductSummaryDTO> findByCategory(Category category);
+
+    //Using Custom Query on DTO interface
+    /*
+    @Query("select p.id, p.name from Product p where p.category = :category")
+    List<ProductSummary> findByCategory(@Param("category") Category category);
+    */
+
+    //Using Custom Query on DTO classes
+    @Query("select new com.example.demo.dtos.ProductSummaryDTO(p.id, p.name) from Product p where p.category = :category")
+    List<ProductSummaryDTO> findByCategory(@Param("category") Category category);
 }
