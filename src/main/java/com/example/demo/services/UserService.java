@@ -143,4 +143,10 @@ public class UserService {
             u.getAddresses().forEach(System.out::println);
         });
     }
+
+    @Transactional
+    public void fetchProductsProcedure() {
+        var products = productRepository.findProducts(BigDecimal.valueOf(1), BigDecimal.valueOf(15));
+        products.forEach(System.out::println);
+    }
 }

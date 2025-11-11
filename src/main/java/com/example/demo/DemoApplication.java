@@ -32,7 +32,8 @@ public class DemoApplication {
 		//service.updateProductPrices();
 		//service.fetchProducts();
 		//service.fetchUser();
-		service.fetchUsers();
+		//service.fetchUsers();
+		service.fetchProductsProcedure();
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 
