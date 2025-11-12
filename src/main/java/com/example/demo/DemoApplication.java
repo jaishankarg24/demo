@@ -39,7 +39,9 @@ public class DemoApplication {
 		//service.printLoyalProfiles();
 		//service.fetchProducts();
 		//service.fetchProductsByCriteria();
-		service.fetchProductsBySpecifications("prod", BigDecimal.valueOf(1), null);
+		//service.fetchProductsBySpecifications("prod", BigDecimal.valueOf(1), null);
+		//service.fetchSortedProducts();
+		service.fetchPaginatedProducts(0, 10);
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 
