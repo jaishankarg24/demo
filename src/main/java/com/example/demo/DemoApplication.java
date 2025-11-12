@@ -35,7 +35,8 @@ public class DemoApplication {
 		//service.fetchUsers();
 		//service.fetchProductsProcedure();
 		//service.printLoyalProfiles();
-		service.fetchProducts();
+		//service.fetchProducts();
+		service.fetchProductsByCriteria();
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 
