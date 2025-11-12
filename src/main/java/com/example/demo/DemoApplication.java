@@ -12,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.math.BigDecimal;
+
 @SpringBootApplication
 public class DemoApplication {
 
@@ -36,7 +38,8 @@ public class DemoApplication {
 		//service.fetchProductsProcedure();
 		//service.printLoyalProfiles();
 		//service.fetchProducts();
-		service.fetchProductsByCriteria();
+		//service.fetchProductsByCriteria();
+		service.fetchProductsBySpecifications("prod", BigDecimal.valueOf(1), null);
 
 		//UserRepository repository = context.getBean(UserRepository.class);
 
